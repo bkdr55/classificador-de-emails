@@ -15,13 +15,10 @@ from dotenv import load_dotenv
 # Carregar variáveis de ambiente
 load_dotenv()
 
+openai_api_key = os.getenv('OPENAI_API_KEY')
+
 app = Flask(__name__)
 CORS(app)
-
-if __name__ == "__main__":
-    # O Heroku define a porta na variável de ambiente PORT
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
 
 # Configurações
 UPLOAD_FOLDER = 'uploads'
@@ -86,7 +83,7 @@ except Exception as e:
 # Configurar OpenAI (opcional, para respostas mais sofisticadas)
 openai_api_key = os.getenv('OPENAI_API_KEY')
 if openai_api_key:
-    openai.api_key = openai_api_key
+    openai.api_key = openai.api_key
     print("OpenAI configurado!")
 else:
     print("OpenAI não configurado - usando modelo local")
