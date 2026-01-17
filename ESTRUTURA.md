@@ -34,6 +34,7 @@ desafio-oul/
 ├── 📁 docs/                # Documentação
 │   ├── INSTALL.md           # Guia de instalação
 │   ├── DEPLOY.md            # Guia de deploy
+|   ├── INICIAR.md           # Guia de iniciação do projeto
 │   └── configurar_openai.md # Configuração OpenAI
 │
 ├── 📁 examples/             # Exemplos de emails

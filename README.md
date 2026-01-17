@@ -64,7 +64,7 @@ python main.py
 
 A aplicação estará disponível em `http://localhost:5000`
 
-### Opção 3: Railway
+### Opção 2: Railway
 
 1. Conecte seu repositório ao Railway
 2. Configure o comando de start: `gunicorn main:app --bind 0.0.0.0:$PORT`
@@ -83,6 +83,7 @@ A aplicação estará disponível em `http://localhost:5000`
    - Resposta automática sugerida
 5. **Copie a resposta** usando o botão de cópia
 6. **Acesse o histórico** para ver análises anteriores
+7. **Para mais detalhes** acesse `INICIAR.md`
 
 ### 📧 Testar com Exemplos
 
@@ -114,6 +115,7 @@ desafio-oul/
 ├── main.py              # Backend Flask principal
 ├── requirements.txt     # Dependências Python
 ├── README.md            # Documentação principal
+├── Triagem.py          # Prompt iniciação ia
 ├── templates/          # Templates HTML
 │   └── index.html       # Interface web
 ├── static/             # Arquivos estáticos
@@ -153,15 +155,6 @@ O sistema utiliza uma abordagem híbrida:
 3. **Geração de Resposta**:
    - Templates profissionais (fallback)
    - OpenAI GPT (quando configurado) para respostas mais sofisticadas
-
-## 📊 Melhorias Futuras
-
-- [ ] Treinamento de modelo customizado com dados reais
-- [ ] Suporte a mais formatos de arquivo
-- [ ] Análise de sentimento mais detalhada
-- [ ] Exportação de relatórios
-- [ ] API REST completa para integração
-- [ ] Dashboard com estatísticas
 
 ## 📝 Licença
 
