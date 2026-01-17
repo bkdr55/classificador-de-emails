@@ -83,7 +83,7 @@ A aplicação estará disponível em `http://localhost:5000`
    - Resposta automática sugerida
 5. **Copie a resposta** usando o botão de cópia
 6. **Acesse o histórico** para ver análises anteriores
-7. **Para mais detalhes** acesse `INICIAR.md`
+7. **Passo a Passo detalhado** acesse `INICIAR.md`
 
 ### 📧 Testar com Exemplos
 
@@ -128,6 +128,7 @@ desafio-oul/
 ├── docs/               # Documentação
 │   ├── INSTALL.md      # Guia de instalação
 │   ├── DEPLOY.md       # Guia de deploy
+|   ├── INICIAR.md      # Guia de iniciação do projeto
 │   └── configurar_openai.md
 ├── examples/           # Exemplos de emails
 │   ├── email_produtivo.txt
