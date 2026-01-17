@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificador de Emails - IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h1>Classificador de Emails</h1>
+                </div>
+                <p class="subtitle">Inteligência Artificial para classificação e resposta automática</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="card">
+                    <h2><i class="fas fa-upload"></i> Enviar Email para Análise</h2>
+                    
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="upload">
+                            <i class="fas fa-file-upload"></i> Upload de Arquivo
+                        </button>
+                        <button class="tab-btn" data-tab="text">
+                            <i class="fas fa-keyboard"></i> Inserir Texto
+                        </button>
+                    </div>
+
+                    <!-- Upload de Arquivo -->
+                    <div class="tab-content active" id="upload-tab">
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Arraste e solte seu arquivo aqui</p>
+                            <p class="file-info">ou clique para selecionar</p>
+                            <p class="file-types">Formatos suportados: .txt, .pdf (máx. 5MB)</p>
+                            <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
+                            <div class="file-name" id="fileName"></div>
+                        </div>
+                    </div>
+
+                    <!-- Inserção de Texto -->
+                    <div class="tab-content" id="text-tab">
+                        <textarea 
+                            id="textInput" 
+                            placeholder="Cole ou digite o conteúdo do email aqui..."
+                            rows="8"
+                        ></textarea>
+                    </div>
+
+                    <button class="btn-primary" id="analyzeBtn" disabled>
+                        <i class="fas fa-brain"></i> Analisar Email
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resultados -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="card result-card">
+                    <h2><i class="fas fa-chart-line"></i> Resultados da Análise</h2>
+                    
+                    <div class="result-grid">
+                        <!-- Categoria -->
+                        <div class="result-item">
+                            <div class="result-label">
+                                <i class="fas fa-tag"></i> Categoria
+                            </div>
+                            <div class="result-value" id="categoryResult">
+                                <span class="category-badge" id="categoryBadge"></span>
+                                <span class="confidence" id="confidence"></span>
+                            </div>
+                        </div>
+
+                        <!-- Resposta Sugerida -->
+                        <div class="result-item full-width">
+                            <div class="result-label">
+                                <i class="fas fa-reply"></i> Resposta Automática Sugerida
+                            </div>
+                            <div class="response-box" id="responseBox">
+                                <div class="response-content" id="responseContent"></div>
+                                <button class="btn-copy" id="copyBtn" title="Copiar resposta">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Preview do Texto -->
+                        <div class="result-item full-width">
+                            <div class="result-label">
+                                <i class="fas fa-eye"></i> Preview do Email
+                            </div>
+                            <div class="preview-box" id="previewBox"></div>
+                        </div>
+                    </div>
+
+                    <button class="btn-secondary" id="newAnalysisBtn">
+                        <i class="fas fa-plus"></i> Nova Análise
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Processando com IA...</p>
+            </div>
+        </main>
+
+        <!-- Histórico -->
+        <div class="history-section" id="historySection">
+            <div class="card">
+                <h2><i class="fas fa-history"></i> Histórico de Análises</h2>
+                <div class="history-list" id="historyList">
+                    <p class="empty-history">Nenhuma análise realizada ainda</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

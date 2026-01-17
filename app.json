@@ -1,0 +1,17 @@
+{
+  "name": "Classificador de Emails IA",
+  "description": "Sistema de classificação e resposta automática de emails usando IA",
+  "repository": "https://github.com/bkdr55/classificador-de-emails.git",
+  "keywords": ["flask", "ai", "nlp", "email", "classification"],
+  "buildpacks": [
+    {
+      "url": "https://classificadoremail-17430ba5e314.herokuapp.com/"
+    }
+  ],
+  "env": {
+    "OPENAI_API_KEY": {
+      "description": "USE_SUA_KEY_AQUI",
+      "required": true
+    }
+  }
+}
